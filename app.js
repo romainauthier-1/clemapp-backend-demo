@@ -21,7 +21,7 @@ app.use(cors());
 app.use("/users", usersRouter);
 app.use("/surprises", surprisesRouter);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`🚀 Serveur lancé sur le port ${PORT}`);
 });
