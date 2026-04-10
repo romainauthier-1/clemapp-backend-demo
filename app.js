@@ -4,6 +4,13 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var cors = require("cors");
+var webpush = require("web-push");
+
+webpush.setVapidDetails(
+  "mailto:romainauthier@outlook.com",
+  process.env.VAPID_PUBLIC_KEY,
+  process.env.VAPID_PRIVATE_KEY,
+);
 
 var usersRouter = require("./routes/users");
 const surprisesRouter = require("./routes/surprises");
