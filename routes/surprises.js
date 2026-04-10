@@ -220,7 +220,6 @@ router.post("/lockManually/:id", async (req, res) => {
 // GET Une citation au hasard
 router.get("/random-quote", (req, res) => {
   const randomIndex = Math.floor(Math.random() * quotes.length);
-  console.log(quotes[randomIndex]);
   res.json({ result: true, quote: quotes[randomIndex] });
 });
 

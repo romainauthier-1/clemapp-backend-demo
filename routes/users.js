@@ -86,4 +86,33 @@ router.post("/signin", async (req, res) => {
   }
 });
 
+// GET Météo
+router.get("/weather", async (req, res) => {
+  try {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?q=grans&appid=${process.env.EXPO_PUBLIC_OWM_API_KEY}&units=metric`,
+    );
+    const data = await response.json();
+    if (data) {
+      const generalInfos = {
+        cityName: data.city.name,
+        sunrise: `${String(new Date(data.city.sunrise * 1000).getHours()).padStart(2, "0")}:${String(new Date(data.city.sunrise * 1000).getMinutes()).padStart(2, "0")}`,
+        sunset: `${String(new Date(data.city.sunset * 1000).getHours()).padStart(2, "0")}:${String(new Date(data.city.sunset * 1000).getMinutes()).padStart(2, "0")}`,
+      };
+      const forecast = data.list.slice(0, 5).map((item) => ({
+        time: `${String(new Date(item.dt * 1000).getHours()).padStart(2, "0")}:${String(new Date(item.dt * 1000).getMinutes()).padStart(2, "0")}`,
+        temp: Math.round(item.main.temp),
+        tempMax: Math.round(item.main.temp_max),
+        tempMin: Math.round(item.main.temp_min),
+        icon: item.weather[0].icon,
+        description: item.weather[0].main,
+      }));
+
+      res.status(200).json({ result: true, generalInfos, forecast });
+    }
+  } catch (err) {
+    res.status(500).json({ result: false, message: err.message });
+  }
+});
+
 module.exports = router;
