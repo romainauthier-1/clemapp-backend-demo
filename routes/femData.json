@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "texte": "On ne naît pas femme, on le devient.",
+    "auteur": "Simone de Beauvoir",
+    "lien": "https://fr.wikipedia.org/wiki/Simone_de_Beauvoir"
+  },
+  {
+    "id": 2,
+    "texte": "Le féminisme est une façon de vivre individuellement et de lutter collectivement.",
+    "auteur": "Simone dev Beauvoir",
+    "lien": "https://fr.wikipedia.org/wiki/Simone_de_Beauvoir"
+  },
+  {
+    "id": 3,
+    "texte": "Mesdames, n'oubliez jamais qu'il suffira d'une crise politique, économique ou religieuse pour que les droits des femmes soient remis en question.",
+    "auteur": "Simone de Beauvoir",
+    "lien": "https://fr.wikipedia.org/wiki/Simone_de_Beauvoir"
+  },
+  {
+    "id": 4,
+    "texte": "Je ne serai pas libre tant qu'une seule femme sera enchaînée, même si ses chaînes sont très différentes des miennes.",
+    "auteur": "Audre Lorde",
+    "lien": "https://fr.wikipedia.org/wiki/Audre_Lorde"
+  },
+  {
+    "id": 5,
+    "texte": "Le féminisme n'a jamais tué personne, le machisme tue tous les jours.",
+    "auteur": "Benoîte Groult",
+    "lien": "https://fr.wikipedia.org/wiki/Beno%C3%AEte_Groult"
+  },
+  {
+    "id": 6,
+    "texte": "On ne peut pas être ce que l'on ne peut pas voir.",
+    "auteur": "Marian Wright Edelman",
+    "lien": "https://fr.wikipedia.org/wiki/Marian_Wright_Edelman"
+  },
+  {
+    "id": 7,
+    "texte": "La femme a le droit de monter sur l'échafaud ; elle doit avoir également celui de monter à la Tribune.",
+    "auteur": "Olympe de Gouges",
+    "lien": "https://fr.wikipedia.org/wiki/Olympe_de_Gouges"
+  },
+  {
+    "id": 8,
+    "texte": "Apprendre aux filles qu'elles peuvent dire non est encore plus important que leur apprendre à dire oui.",
+    "auteur": "Chimamanda Ngozi Adichie",
+    "lien": "https://www.instagram.com/chimamanda_adichie/"
+  },
+  {
+    "id": 9,
+    "texte": "Nous devrions tous être féministes.",
+    "auteur": "Chimamanda Ngozi Adichie",
+    "lien": "https://fr.wikipedia.org/wiki/Chimamanda_Ngozi_Adichie"
+  },
+  {
+    "id": 10,
+    "texte": "Le genre n'est pas une destination, c'est un voyage.",
+    "auteur": "Judith Butler",
+    "lien": "https://fr.wikipedia.org/wiki/Judith_Butler"
+  },
+  {
+    "id": 11,
+    "texte": "Ne libérez pas les femmes, on s'en chargera.",
+    "auteur": "Slogan du MLF",
+    "lien": "https://fr.wikipedia.org/wiki/Mouvement_de_lib%C3%A9ration_des_femmes"
+  },
+  {
+    "id": 12,
+    "texte": "L'éducation des femmes est le meilleur investissement qu'un pays puisse faire.",
+    "auteur": "Malala Yousafzai",
+    "lien": "https://www.instagram.com/malala/"
+  },
+  {
+    "id": 13,
+    "texte": "Un enfant, un professeur, un livre et un stylo peuvent changer le monde.",
+    "auteur": "Malala Yousafzai",
+    "lien": "https://fr.wikipedia.org/wiki/Malala_Yousafzai"
+  },
+  {
+    "id": 14,
+    "texte": "Ma propre définition du féminisme, c'est l'idée que les femmes sont des êtres humains à part entière.",
+    "auteur": "Rebecca Solnit",
+    "lien": "https://fr.wikipedia.org/wiki/Rebecca_Solnit"
+  },
+  {
+    "id": 15,
+    "texte": "Une femme sans homme, c'est comme un poisson sans bicyclette.",
+    "auteur": "Gloria Steinem",
+    "lien": "https://fr.wikipedia.org/wiki/Gloria_Steinem"
+  },
+  {
+    "id": 16,
+    "texte": "L'émancipation des femmes doit être l'œuvre des femmes elles-mêmes.",
+    "auteur": "Hubertine Auclert",
+    "lien": "https://fr.wikipedia.org/wiki/Hubertine_Auclert"
+  },
+  {
+    "id": 17,
+    "texte": "Il n'y a pas de limite à ce que nous, en tant que femmes, pouvons accomplir.",
+    "auteur": "Michelle Obama",
+    "lien": "https://www.instagram.com/michelleobama/"
+  },
+  {
+    "id": 18,
+    "texte": "Le féminisme est pour tout le monde.",
+    "auteur": "bell hooks",
+    "lien": "https://fr.wikipedia.org/wiki/Bell_hooks"
+  },
+  {
+    "id": 19,
+    "texte": "Écrire, c'est déjà agir.",
+    "auteur": "Monique Wittig",
+    "lien": "https://fr.wikipedia.org/wiki/Monique_Wittig"
+  },
+  {
+    "id": 20,
+    "texte": "Si vous voulez que quelque chose soit dit, demandez à un homme. Si vous voulez que quelque chose soit fait, demandez à une femme.",
+    "auteur": "Margaret Thatcher",
+    "lien": "https://fr.wikipedia.org/wiki/Margaret_Thatcher"
+  },
+  {
+    "id": 21,
+    "texte": "Personne ne peut vous faire sentir inférieur sans votre consentement.",
+    "auteur": "Eleanor Roosevelt",
+    "lien": "https://fr.wikipedia.org/wiki/Eleanor_Roosevelt"
+  },
+  {
+    "id": 22,
+    "texte": "Le corps des femmes est un champ de bataille.",
+    "auteur": "Barbara Kruger",
+    "lien": "https://fr.wikipedia.org/wiki/Barbara_Kruger"
+  },
+  {
+    "id": 23,
+    "texte": "La colère des femmes est une force de transformation.",
+    "auteur": "Soraya Chemaly",
+    "lien": "https://twitter.com/schemaly"
+  },
+  {
+    "id": 24,
+    "texte": "Les femmes qui se comportent bien marquent rarement l'histoire.",
+    "auteur": "Laurel Thatcher Ulrich",
+    "lien": "https://fr.wikipedia.org/wiki/Laurel_Thatcher_Ulrich"
+  },
+  {
+    "id": 25,
+    "texte": "Le futur appartient à ceux qui croient à la beauté de leurs rêves.",
+    "auteur": "Eleanor Roosevelt",
+    "lien": "https://fr.wikipedia.org/wiki/Eleanor_Roosevelt"
+  },
+  {
+    "id": 26,
+    "texte": "Une femme qui a une voix est, par définition, une femme forte.",
+    "auteur": "Melinda Gates",
+    "lien": "https://www.instagram.com/melindafrenchgates/"
+  },
+  {
+    "id": 27,
+    "texte": "La parité, c'est maintenant.",
+    "auteur": "Gisèle Halimi",
+    "lien": "https://fr.wikipedia.org/wiki/Gis%C3%A8le_Halimi"
+  },
+  {
+    "id": 28,
+    "texte": "Je plaide pour ma classe, pour les femmes.",
+    "auteur": "Gisèle Halimi",
+    "lien": "https://fr.wikipedia.org/wiki/Gis%C3%A8le_Halimi"
+  },
+  {
+    "id": 29,
+    "texte": "Soyez vous-même, tous les autres sont déjà pris.",
+    "auteur": "Oscar Wilde",
+    "lien": "https://fr.wikipedia.org/wiki/Oscar_Wilde"
+  },
+  {
+    "id": 30,
+    "texte": "Le silence est le meilleur allié de l'oppression.",
+    "auteur": "Titiou Lecoq",
+    "lien": "https://www.instagram.com/titioulecoq/"
+  },
+  {
+    "id": 31,
+    "texte": "L'égalité des sexes n'est pas seulement un objectif en soi, mais une condition préalable au développement.",
+    "auteur": "Kofi Annan",
+    "lien": "https://fr.wikipedia.org/wiki/Kofi_Annan"
+  },
+  {
+    "id": 32,
+    "texte": "Il n'y a pas de barrière, de serrure ou de verrou que vous puissiez imposer à la liberté de mon esprit.",
+    "auteur": "Virginia Woolf",
+    "lien": "https://fr.wikipedia.org/wiki/Virginia_Woolf"
+  },
+  {
+    "id": 33,
+    "texte": "Une femme doit avoir de l'argent et une chambre à soi si elle veut écrire de la fiction.",
+    "auteur": "Virginia Woolf",
+    "lien": "https://fr.wikipedia.org/wiki/Virginia_Woolf"
+  },
+  {
+    "id": 34,
+    "texte": "La masculinité toxique nuit aussi bien aux hommes qu'aux femmes.",
+    "auteur": "Clémentine Autain",
+    "lien": "https://www.instagram.com/clem_autain/"
+  },
+  {
+    "id": 35,
+    "texte": "Le privé est politique.",
+    "auteur": "Carol Hanisch",
+    "lien": "https://fr.wikipedia.org/wiki/Carol_Hanisch"
+  },
+  {
+    "id": 36,
+    "texte": "Tout le monde peut être féministe.",
+    "auteur": "Emma Watson",
+    "lien": "https://www.instagram.com/emmawatson/"
+  },
+  {
+    "id": 37,
+    "texte": "Les droits de l'homme sont les droits des femmes et les droits des femmes sont les droits de l'homme.",
+    "auteur": "Hillary Clinton",
+    "lien": "https://www.instagram.com/hillaryclinton/"
+  },
+  {
+    "id": 38,
+    "texte": "On ne lâche rien.",
+    "auteur": "Arlette Laguiller",
+    "lien": "https://fr.wikipedia.org/wiki/Arlette_Laguiller"
+  },
+  {
+    "id": 39,
+    "texte": "Rien n'est acquis à l'homme. Ni sa force, ni sa faiblesse.",
+    "auteur": "Elsa Triolet",
+    "lien": "https://fr.wikipedia.org/wiki/Elsa_Triolet"
+  },
+  {
+    "id": 40,
+    "texte": "Le premier homme qui a comparé une femme à une rose était un poète, le second était un imbécile.",
+    "auteur": "Salvador Dalí",
+    "lien": "https://fr.wikipedia.org/wiki/Salvador_Dal%C3%AD"
+  },
+  {
+    "id": 41,
+    "texte": "Vivre, c'est choisir. Mais pour choisir, il faut savoir qui on est.",
+    "auteur": "Grace Kelly",
+    "lien": "https://fr.wikipedia.org/wiki/Grace_Kelly"
+  },
+  {
+    "id": 42,
+    "texte": "La liberté, c'est de ne pas avoir peur.",
+    "auteur": "Nina Simone",
+    "lien": "https://fr.wikipedia.org/wiki/Nina_Simone"
+  },
+  {
+    "id": 43,
+    "texte": "L'important n'est pas ce qu'on fait de nous, mais ce que nous faisons nous-mêmes de ce qu'on a fait de nous.",
+    "auteur": "Jean-Paul Sartre",
+    "lien": "https://fr.wikipedia.org/wiki/Jean-Paul_Sartre"
+  },
+  {
+    "id": 44,
+    "texte": "Il n'y a pas de réussite facile ni de bonheur sans courage.",
+    "auteur": "Marie Curie",
+    "lien": "https://fr.wikipedia.org/wiki/Marie_Curie"
+  },
+  {
+    "id": 45,
+    "texte": "Dans la vie, rien n'est à craindre, tout est à comprendre.",
+    "auteur": "Marie Curie",
+    "lien": "https://fr.wikipedia.org/wiki/Marie_Curie"
+  },
+  {
+    "id": 46,
+    "texte": "Le monde ne sera pas sauvé par des hommes de bonne volonté mais par des femmes de bonne volonté.",
+    "auteur": "Françoise Giroud",
+    "lien": "https://fr.wikipedia.org/wiki/Fran%C3%A7oise_Giroud"
+  },
+  {
+    "id": 47,
+    "texte": "La femme est l'avenir de l'homme.",
+    "auteur": "Louis Aragon",
+    "lien": "https://fr.wikipedia.org/wiki/Louis_Aragon"
+  },
+  {
+    "id": 48,
+    "texte": "Soyez le changement que vous voulez voir dans le monde.",
+    "auteur": "Mahatma Gandhi",
+    "lien": "https://fr.wikipedia.org/wiki/Mahatma_Gandhi"
+  },
+  {
+    "id": 49,
+    "texte": "La sororité est une arme.",
+    "auteur": "Slogan féministe",
+    "lien": "https://fr.wikipedia.org/wiki/Sororit%C3%A9"
+  },
+  {
+    "id": 50,
+    "texte": "Nous sommes les petites-filles des sorcières que vous n'avez pas pu brûler.",
+    "auteur": "Slogan féministe",
+    "lien": "https://fr.wikipedia.org/wiki/Chasse_aux_sorci%C3%A8res"
+  }
+]

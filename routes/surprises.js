@@ -3,6 +3,7 @@ var router = express.Router();
 require("../models/connection");
 const Surprise = require("../models/surprises");
 const { checkBody } = require("../modules/checkBody");
+const quotes = require("./femData.json");
 
 // GET toutes les surprises à venir
 router.get("/all", async (req, res) => {
@@ -215,4 +216,12 @@ router.post("/lockManually/:id", async (req, res) => {
     res.status(500).json({ result: false, message: err.message });
   }
 });
+
+// GET Une citation au hasard
+router.get("/random-quote", (req, res) => {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  console.log(quotes[randomIndex]);
+  res.json({ result: true, quote: quotes[randomIndex] });
+});
+
 module.exports = router;
