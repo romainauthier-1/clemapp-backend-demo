@@ -8,8 +8,8 @@ var webpush = require("web-push");
 
 webpush.setVapidDetails(
   "mailto:romainauthier@outlook.com",
-  process.env.VAPID_PUBLIC_KEY,
-  process.env.VAPID_PRIVATE_KEY,
+  process.env.EXPO_PUBLIC_VAPID_PUBLIC_KEY,
+  process.env.EXPO_PUBLIC_VAPID_PRIVATE_KEY,
 );
 
 var usersRouter = require("./routes/users");
