@@ -115,4 +115,32 @@ router.get("/weather", async (req, res) => {
   }
 });
 
+// POST Souscription notifications
+router.post("/subscribe", async (req, res) => {
+  const { token, subscription } = req.body;
+  try {
+    const updatedUser = await User.findOneAndUpdate(
+      { token },
+      { subscription },
+      { new: true },
+    );
+
+    if (updatedUser) {
+      res
+        .status(200)
+        .json({
+          result: true,
+          message: "Notifications activées !",
+          updatedUser,
+        });
+    } else {
+      res
+        .status(404)
+        .json({ result: false, message: "Utilisateur.ice non trouvé.e" });
+    }
+  } catch (err) {
+    res.status(500).json({ result: false, message: err.message });
+  }
+});
+
 module.exports = router;

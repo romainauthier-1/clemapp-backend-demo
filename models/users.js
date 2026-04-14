@@ -5,6 +5,7 @@ const userSchema = mongoose.Schema({
   password: String,
   token: String,
   status: { type: String, enum: ["star", "guest", "guest+"] },
+  subscription: { type: Object, default: null },
 });
 
 const User = mongoose.model("users", userSchema);
