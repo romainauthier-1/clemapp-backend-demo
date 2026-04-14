@@ -14,6 +14,7 @@ webpush.setVapidDetails(
 
 var usersRouter = require("./routes/users");
 const surprisesRouter = require("./routes/surprises");
+const notifRouter = require("./routes/notifications");
 
 var app = express();
 require("./models/connection");
@@ -33,6 +34,7 @@ app.use(
 
 app.use("/users", usersRouter);
 app.use("/surprises", surprisesRouter);
+app.use("/notifications", notifRouter);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
