@@ -5,6 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var cors = require("cors");
 var webpush = require("web-push");
+const mongoose = require("mongoose");
 
 webpush.setVapidDetails(
   "mailto:romainauthier@outlook.com",
@@ -40,5 +41,18 @@ const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`🚀 Serveur lancé sur le port ${PORT}`);
 });
+app.get("/health", async (req, res) => {
+  const state = mongoose.connection.readyState;
+  // 0 = déconnecté, 1 = connecté, 2 = connecting, 3 = disconnecting
+  const states = ["déconnecté", "connecté", "en cours...", "fermeture..."];
 
+  try {
+    await mongoose.connection.db.admin().ping();
+    res.json({ db: "connecté ✅", ping: "OK" });
+  } catch (err) {
+    res
+      .status(503)
+      .json({ db: states[state], ping: "KO ❌", error: err.message });
+  }
+});
 module.exports = app;

@@ -7,8 +7,14 @@ const quotes = require("./femData.json");
 
 // GET toutes les surprises à venir
 router.get("/all", async (req, res) => {
+  console.log("1️⃣ Route atteinte");
   try {
-    const allSurprises = await Surprise.find().populate("organizedBy");
+    console.log("2️⃣ Avant la requête Mongoose");
+    const allSurprises = await Surprise.find().populate({
+      path: "organizedBy",
+      strictPopulate: false,
+    });
+    console.log("3️⃣ Après la requête :", allSurprises.length, "docs");
     // const futureSurprises = allSurprises?.filter(
     //   (surprise) => surprise.revealAt > new Date(),
     // );
@@ -21,6 +27,7 @@ router.get("/all", async (req, res) => {
         .json({ result: false, message: "Aucune surprise trouvée." });
     }
   } catch (err) {
+    console.log("4️⃣ ERREUR :", err.message);
     res.status(500).json({ result: false, message: err.message });
   }
 });
@@ -51,6 +58,7 @@ router.post("/new", async (req, res) => {
       riddle,
       hint,
       answer,
+      notes,
     } = req.body;
 
     const checkSurprise = await Surprise.findOne({ title });
@@ -173,19 +181,13 @@ router.post("/unlockManually/:id", async (req, res) => {
       return;
     }
 
-    if (foundSurprise.revealMode === "manual") {
-      foundSurprise.isUnlocked = true;
-      const unlockedSurprise = await foundSurprise.save();
-      res.status(200).json({
-        result: true,
-        unlockedSurprise,
-        message: "Surprise débloquée !",
-      });
-    } else {
-      res
-        .status(400)
-        .json({ result: false, message: "Ce n'est pas encore l'heure !" });
-    }
+    foundSurprise.isUnlocked = true;
+    const unlockedSurprise = await foundSurprise.save();
+    res.status(200).json({
+      result: true,
+      unlockedSurprise,
+      message: "Surprise débloquée !",
+    });
   } catch (err) {
     res.status(500).json({ result: false, message: err.message });
   }
