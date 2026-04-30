@@ -6,6 +6,7 @@ const userSchema = mongoose.Schema({
   token: String,
   status: { type: String, enum: ["star", "guest", "guest+"] },
   subscription: { type: Object, default: null },
+  isLinus: { type: Boolean, default: false },
 });
 
 const User = mongoose.model("users", userSchema);

@@ -70,10 +70,13 @@ router.post("/signin", async (req, res) => {
 
     const foundUser = await User.findOne({ name: name.toLowerCase() });
 
+    const linus = await User.findOne({ isLinus: true });
+
     if (foundUser && bcrypt.compareSync(password, foundUser.password)) {
       res.status(302).json({
         result: true,
         foundUser,
+        linus,
       });
     } else {
       res.status(401).json({
@@ -82,6 +85,32 @@ router.post("/signin", async (req, res) => {
       });
     }
   } catch (err) {
+    res.status(500).json({ result: false, message: err.message });
+  }
+});
+
+// POST changer Linus
+router.post("/changeLinus", async (req, res) => {
+  try {
+    const { token } = req.body;
+
+    const exLinus = await User.findOneAndUpdate(
+      { isLinus: true },
+      { isLinus: false },
+      { new: true },
+    );
+
+    const newLinus = await User.findOneAndUpdate(
+      { token },
+      { isLinus: true },
+      { new: true },
+    );
+
+    res
+      .status(200)
+      .json({ result: true, message: "Linus mis à jour !", newLinus, exLinus });
+  } catch (err) {
+    console.error(err);
     res.status(500).json({ result: false, message: err.message });
   }
 });
@@ -126,13 +155,11 @@ router.post("/subscribe", async (req, res) => {
     );
 
     if (updatedUser) {
-      res
-        .status(200)
-        .json({
-          result: true,
-          message: "Notifications activées !",
-          updatedUser,
-        });
+      res.status(200).json({
+        result: true,
+        message: "Notifications activées !",
+        updatedUser,
+      });
     } else {
       res
         .status(404)
