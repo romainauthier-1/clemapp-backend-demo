@@ -219,6 +219,21 @@ router.post("/lockManually/:id", async (req, res) => {
   }
 });
 
+// GET savoir si la surprise est débloquée
+router.get("/isUnlocked/:id", async (req, res) => {
+  try {
+    const foundSurprise = await Surprise.findById(req.params.id);
+
+    if (foundSurprise && foundSurprise.isUnlocked) {
+      res.status(200).json({ result: true, isUnlocked: true });
+    } else {
+      res.status(200).json({ result: true, isUnlocked: false });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ result: false, message: err.message });
+  }
+});
 // GET Une citation au hasard
 router.get("/random-quote", (req, res) => {
   const randomIndex = Math.floor(Math.random() * quotes.length);
