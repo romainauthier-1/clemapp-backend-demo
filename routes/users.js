@@ -115,6 +115,20 @@ router.post("/changeLinus", async (req, res) => {
   }
 });
 
+// GET savoir qui est Linus
+router.get("/linus", async (req, res) => {
+  try {
+    const linus = User.findOne({ isLinus: true });
+
+    if (linus) {
+      res.status(200).json({ result: true, linus });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ result: false, message: err.message });
+  }
+});
+
 // GET Météo
 router.get("/weather", async (req, res) => {
   try {
