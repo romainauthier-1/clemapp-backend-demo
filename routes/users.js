@@ -43,10 +43,16 @@ router.post("/signup", async (req, res) => {
       });
 
       const savedUser = await newUser.save();
+
+      const { password: _, ...userWithoutPassword } = savedUser.toObject();
+
+      const linus = await User.findOne({ isLinus: true });
+
       res.status(201).json({
         result: true,
-        savedUser,
+        savedUser: userWithoutPassword,
         message: "Utilisateur.ice enregistré.e !",
+        linus,
       });
     } else {
       res
@@ -68,7 +74,9 @@ router.post("/signin", async (req, res) => {
 
     const { name, password } = req.body;
 
-    const foundUser = await User.findOne({ name: name.toLowerCase() });
+    const foundUser = await User.findOne({ name: name.toLowerCase() }).select(
+      "-password",
+    );
 
     const linus = await User.findOne({ isLinus: true });
 
