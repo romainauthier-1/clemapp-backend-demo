@@ -78,7 +78,7 @@ router.post("/signin", async (req, res) => {
       "-password",
     );
 
-    const linus = await User.findOne({ isLinus: true });
+    const linus = await User.findOne({ isLinus: true }).select("- password");
 
     if (foundUser && bcrypt.compareSync(password, foundUser.password)) {
       res.status(302).json({
