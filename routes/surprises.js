@@ -35,11 +35,12 @@ router.get("/random-quote", (req, res) => {
 // POST ajouter une surprise
 router.post("/new", async (req, res) => {
   try {
+    console.log("BODY REQUÊTE ||", req.body);
     if (
       !checkBody(req.body, [
         "title",
         "description",
-        "organizedBy",
+        "organizerName",
         "revealMode",
         "revealAt",
       ])
@@ -52,7 +53,7 @@ router.post("/new", async (req, res) => {
       title,
       description,
       type,
-      organizedBy,
+      organizerName,
       revealMode,
       revealAt,
       riddle,
@@ -62,6 +63,14 @@ router.post("/new", async (req, res) => {
     } = req.body;
 
     const checkSurprise = await Surprise.findOne({ title });
+
+    const organizer = await User.findOne({ name: organizerName });
+
+    if (!organizer) {
+      return res
+        .status(400)
+        .json({ result: false, message: "Organisateur.ice non trouvé.e !" });
+    }
 
     if (checkSurprise) {
       res.status(400).json({
@@ -75,7 +84,7 @@ router.post("/new", async (req, res) => {
       title,
       description,
       type,
-      organizedBy,
+      organizedBy: organizer?._id,
       revealMode,
       revealAt,
       riddle,
