@@ -8,14 +8,11 @@ const quotes = require("./femData.json");
 
 // GET toutes les surprises à venir
 router.get("/all", async (req, res) => {
-  console.log("1️⃣ Route atteinte");
   try {
-    console.log("2️⃣ Avant la requête Mongoose");
     const allSurprises = await Surprise.find().populate({
       path: "organizedBy",
       strictPopulate: false,
     });
-    console.log("3️⃣ Après la requête :", allSurprises.length, "docs");
     // const futureSurprises = allSurprises?.filter(
     //   (surprise) => surprise.revealAt > new Date(),
     // );
@@ -28,11 +25,29 @@ router.get("/all", async (req, res) => {
         .json({ result: false, message: "Aucune surprise trouvée." });
     }
   } catch (err) {
-    console.log("4️⃣ ERREUR :", err.message);
     res.status(500).json({ result: false, message: err.message });
   }
 });
 
+// GET une surprise by ID
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const foundSurprise = await Surprise.findById(id).populate(
+      "organizedBy",
+      "name",
+    );
+    if (foundSurprise) {
+      res.status(302).json({ result: true, foundSurprise });
+    } else {
+      res
+        .status(404)
+        .json({ result: false, message: "Aucune surprise trouvée." });
+    }
+  } catch (err) {
+    res.status(500).json({ result: false, message: err.message });
+  }
+});
 // POST ajouter une surprise
 router.post("/new", async (req, res) => {
   try {
