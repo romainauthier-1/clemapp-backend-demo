@@ -26,25 +26,12 @@ router.get("/all", async (req, res) => {
   }
 });
 
-// GET une surprise by ID
-router.get("/:id", async (req, res) => {
-  const { id } = req.params;
-  try {
-    const foundSurprise = await Surprise.findById(id).populate(
-      "organizedBy",
-      "name",
-    );
-    if (foundSurprise) {
-      res.status(302).json({ result: true, foundSurprise });
-    } else {
-      res
-        .status(404)
-        .json({ result: false, message: "Aucune surprise trouvée." });
-    }
-  } catch (err) {
-    res.status(500).json({ result: false, message: err.message });
-  }
+// GET Une citation au hasard
+router.get("/random-quote", (req, res) => {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  res.json({ result: true, quote: quotes[randomIndex] });
 });
+
 // POST ajouter une surprise
 router.post("/new", async (req, res) => {
   try {
@@ -104,6 +91,26 @@ router.post("/new", async (req, res) => {
       savedSurprise,
       message: "Surprise créée avec succès !",
     });
+  } catch (err) {
+    res.status(500).json({ result: false, message: err.message });
+  }
+});
+
+// GET une surprise by ID
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const foundSurprise = await Surprise.findById(id).populate(
+      "organizedBy",
+      "name",
+    );
+    if (foundSurprise) {
+      res.status(302).json({ result: true, foundSurprise });
+    } else {
+      res
+        .status(404)
+        .json({ result: false, message: "Aucune surprise trouvée." });
+    }
   } catch (err) {
     res.status(500).json({ result: false, message: err.message });
   }
@@ -313,11 +320,6 @@ router.put("/update/:id", async (req, res) => {
     console.error(err);
     res.status(500).json({ result: false, message: err.message });
   }
-});
-// GET Une citation au hasard
-router.get("/random-quote", (req, res) => {
-  const randomIndex = Math.floor(Math.random() * quotes.length);
-  res.json({ result: true, quote: quotes[randomIndex] });
 });
 
 module.exports = router;
