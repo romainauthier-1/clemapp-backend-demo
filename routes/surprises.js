@@ -82,6 +82,7 @@ router.post("/new", async (req, res) => {
       hint,
       answer,
       isUnlocked: false,
+      notes,
     });
 
     const savedSurprise = await newSurprise.save();
@@ -228,6 +229,72 @@ router.get("/isUnlocked/:id", async (req, res) => {
       res.status(200).json({ result: true, isUnlocked: true });
     } else {
       res.status(200).json({ result: true, isUnlocked: false });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ result: false, message: err.message });
+  }
+});
+
+// PUT modifier une surprise
+router.put("/update/:id", async (req, res) => {
+  try {
+    if (
+      !checkBody(req.body, [
+        "title",
+        "description",
+        "organizedBy",
+        "revealMode",
+        "revealAt",
+      ])
+    ) {
+      res.status(400).json({ result: false, message: "Champs manquants" });
+      return;
+    }
+
+    const {
+      title,
+      description,
+      type,
+      organizedBy,
+      revealMode,
+      revealAt,
+      riddle,
+      hint,
+      answer,
+      notes,
+    } = req.body;
+
+    const { id } = req.params;
+
+    const organizer = await User.findOne({ name: organizedBy.toLowerCase() });
+
+    !organizer &&
+      res
+        .status(404)
+        .json({ result: false, message: "Organisateur.ice non trouvé.e !" });
+
+    const updatedSurprise = await Surprise.findByIdAndUpdate(
+      id,
+      {
+        ...req.body,
+        organizedBy: organizer._id,
+      },
+      {
+        returnDocument: "after",
+      },
+    ).populate("organizedBy", "name");
+
+    if (updatedSurprise) {
+      res.status(200).json({
+        result: true,
+        updatedSurprise,
+        message: "Surprise mise à jour !",
+      });
+    } else {
+      res
+        .status(404)
+        .json({ result: false, message: "Surprise non trouvée !" });
     }
   } catch (err) {
     console.error(err);
