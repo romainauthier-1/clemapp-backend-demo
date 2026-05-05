@@ -74,16 +74,15 @@ router.post("/signin", async (req, res) => {
 
     const { name, password } = req.body;
 
-    const foundUser = await User.findOne({ name: name.toLowerCase() }).select(
-      "-password",
-    );
+    const foundUser = await User.findOne({ name: name.toLowerCase() });
 
     const linus = await User.findOne({ isLinus: true }).select("- password");
 
     if (foundUser && bcrypt.compareSync(password, foundUser.password)) {
+      const {password: _, ...userWithoutPassword} = foundUser.toObject();
       res.status(302).json({
         result: true,
-        foundUser,
+        foundUser: userWithoutPassword,
         linus,
       });
     } else {
