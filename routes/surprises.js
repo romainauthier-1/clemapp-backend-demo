@@ -35,7 +35,6 @@ router.get("/random-quote", (req, res) => {
 // POST ajouter une surprise
 router.post("/new", async (req, res) => {
   try {
-    console.log("BODY REQUÊTE ||", req.body);
     if (
       !checkBody(req.body, [
         "title",
@@ -328,6 +327,22 @@ router.put("/update/:id", async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ result: false, message: err.message });
+  }
+});
+
+// DELETE supprimer une surprise
+router.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const deletedSurprise = await Surprise.findByIdAndDelete(id);
+
+    if (deletedSurprise) {
+      return res.status(200).json({ result: true, deletedSurprise });
+    }
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ result: false, message: err.message });
   }
 });
 
