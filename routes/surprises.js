@@ -9,10 +9,7 @@ const quotes = require("./femData.json");
 // GET toutes les surprises à venir
 router.get("/all", async (req, res) => {
   try {
-    const allSurprises = await Surprise.find().populate({
-      path: "organizedBy",
-      strictPopulate: false,
-    });
+    const allSurprises = await Surprise.find().populate("organizedBy", "name");
     // const futureSurprises = allSurprises?.filter(
     //   (surprise) => surprise.revealAt > new Date(),
     // );
