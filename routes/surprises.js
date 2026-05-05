@@ -297,10 +297,11 @@ router.put("/update/:id", async (req, res) => {
 
     const organizer = await User.findOne({ name: organizerName.toLowerCase() });
 
-    !organizer &&
-      res
+    if (!organizer) {
+      return res
         .status(404)
         .json({ result: false, message: "Organisateur.ice non trouvé.e !" });
+    }
 
     const updatedSurprise = await Surprise.findByIdAndUpdate(
       id,
