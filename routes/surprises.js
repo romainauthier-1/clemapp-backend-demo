@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 require("../models/connection");
 const Surprise = require("../models/surprises");
+const User = require("../models/users");
 const { checkBody } = require("../modules/checkBody");
 const quotes = require("./femData.json");
 
