@@ -338,7 +338,9 @@ router.delete("/:id", async (req, res) => {
     const deletedSurprise = await Surprise.findByIdAndDelete(id);
 
     if (deletedSurprise) {
-      return res.status(200).json({ result: true, deletedSurprise });
+      return res
+        .status(200)
+        .json({ result: true, deletedSurprise, message: "Surprise supprimée" });
     }
   } catch (err) {
     console.error(err);
