@@ -271,7 +271,7 @@ router.put("/update/:id", async (req, res) => {
       !checkBody(req.body, [
         "title",
         "description",
-        "organizedBy",
+        "organizerName",
         "revealMode",
         "revealAt",
       ])
@@ -284,7 +284,7 @@ router.put("/update/:id", async (req, res) => {
       title,
       description,
       type,
-      organizedBy,
+      organizerName,
       revealMode,
       revealAt,
       riddle,
@@ -295,7 +295,7 @@ router.put("/update/:id", async (req, res) => {
 
     const { id } = req.params;
 
-    const organizer = await User.findOne({ name: organizedBy.toLowerCase() });
+    const organizer = await User.findOne({ name: organizerName.toLowerCase() });
 
     !organizer &&
       res
