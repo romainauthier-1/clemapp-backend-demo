@@ -191,4 +191,74 @@ router.post("/subscribe", async (req, res) => {
   }
 });
 
+// PUT Modifier un user
+router.put("/update/:id", async (req, res) => {
+  const { id } = req.params;
+  const { name, oldPassword, newPassword, status } = req.body;
+
+  try {
+    const userToUpdate = await User.findById(id);
+
+    if (!userToUpdate) {
+      return res
+        .status(404)
+        .json({ result: false, message: "Utilisateur.ice non trouvé.e" });
+    }
+
+    if (oldPassword) {
+      const checkPassword = await bcrypt.compare(
+        oldPassword,
+        userToUpdate.password,
+      );
+      if (name && status && oldPassword && !newPassword) {
+        if (userToUpdate && checkPassword) {
+          userToUpdate.name = name;
+          userToUpdate.status = status;
+          const updatedUser = await userToUpdate.save();
+          const { password: _, ...updatedUserWithoutPassword } = updatedUser;
+          return res.status(200).json({
+            result: true,
+            message: "Utilisateur.ice mis.e à jour",
+            updatedUserWithoutPassword,
+          });
+        }
+      }
+
+      if (name && status && oldPassword && newPassword) {
+        const hashNewPassword = await bcrypt.hash(newPassword, 10);
+
+        if (userToUpdate && checkPassword) {
+          userToUpdate.name = name;
+          userToUpdate.password = hashNewPassword;
+          userToUpdate.status = status;
+          const updatedUser = await userToUpdate.save();
+          const { password: _, ...updatedUserWithoutPassword } = updatedUser;
+          return res.status(200).json({
+            result: true,
+            message: "Utilisateur.ice mis.e à jour",
+            updatedUserWithoutPassword,
+          });
+        }
+      }
+    }
+
+    if (name && status && !oldPassword && !newPassword) {
+      if (userToUpdate) {
+        userToUpdate.name = name;
+        userToUpdate.status = status;
+        const updatedUser = await userToUpdate.save();
+        const { password: _, ...updatedUserWithoutPassword } = updatedUser;
+        return res.status(200).json({
+          result: true,
+          message: "Utilisateur.ice mis.e à jour",
+          updatedUserWithoutPassword,
+        });
+      }
+    }
+  } catch (err) {
+    console.error(err);
+    return res.status(400).json({ result: false, message: err.message });
+  }
+});
+
 module.exports = router;
