@@ -261,4 +261,26 @@ router.put("/update/:id", async (req, res) => {
   }
 });
 
+// DELETE Supprimer un user
+router.delete("/delete/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const deletedUser = await User.findByIdAndDelete(id);
+
+    if (deletedUser) {
+      return res
+        .status(200)
+        .json({
+          result: true,
+          message: "Utilisateur.ice supprimé.e !",
+          deletedUser,
+        });
+    }
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ result: false, message: err.message });
+  }
+});
+
 module.exports = router;
