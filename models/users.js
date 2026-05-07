@@ -4,7 +4,7 @@ const userSchema = mongoose.Schema({
   name: String,
   password: String,
   token: String,
-  status: { type: String, enum: ["star", "guest", "guest+"] },
+  status: { type: String, enum: ["star", "guest", "guest+", "guest-"] },
   subscription: { type: Object, default: null },
   isLinus: { type: Boolean, default: false },
 });
