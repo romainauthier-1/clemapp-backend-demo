@@ -253,6 +253,12 @@ router.get("/isUnlocked/:id", async (req, res) => {
   try {
     const foundSurprise = await Surprise.findById(req.params.id);
 
+    if (!foundSurprise) {
+      return res
+        .status(404)
+        .json({ result: false, message: "Surprise non trouvée." });
+    }
+
     if (foundSurprise && foundSurprise.isUnlocked) {
       res.status(200).json({ result: true, isUnlocked: true });
     } else {
